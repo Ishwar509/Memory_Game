@@ -23,7 +23,6 @@ export default function App(): JSX.Element {
     useEffect(() => {
         const ok = fetchData();
         ok.then(() => {
-            console.log("cards set");
             setCards(getRandomCards());
         }).catch(() => {
             setIsError(true);
@@ -31,7 +30,7 @@ export default function App(): JSX.Element {
     }, []);
 
     return (
-        <div>
+        <div className="grid min-h-screen grid-flow-row">
             <GameInfo
                 bestScore={bestScore}
                 currentScore={chosen.length}

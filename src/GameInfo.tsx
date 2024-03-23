@@ -8,7 +8,7 @@ interface GameInfoProps {
 
 export default function GameInfo({ bestScore, currentScore }: GameInfoProps) {
     return (
-        <header>
+        <header className="grid min-h-24 grid-flow-row place-items-center bg-slate-50 md:grid-cols-2">
             <GameTitle></GameTitle>
             <GameScore
                 bestScore={bestScore}

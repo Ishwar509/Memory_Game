@@ -12,7 +12,7 @@ export default function CardList({
 }: CardListProps): JSX.Element {
     return (
         <main>
-            <ul className="grid grid-flow-row grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-3">
+            <ul className="grid h-full grid-cols-[repeat(auto-fit,minmax(180px,1fr))] justify-items-center gap-6 bg-sky-100 p-6">
                 {cards.map((card) => (
                     <Card
                         key={card.id}

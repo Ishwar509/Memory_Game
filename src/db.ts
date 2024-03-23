@@ -17,7 +17,6 @@ function fetchData() {
 
 async function fetchFromAPI() {
     try {
-        console.log("fetching");
         const data = await Promise.all(pokeIds.map((id) =>
                 fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
                 .then((res) => {
@@ -26,13 +25,10 @@ async function fetchFromAPI() {
                 })
             ),
         );
-        
+
         db = data.map((pokemon) => extractData(pokemon));
-        console.log("fetched");
         return Promise.resolve();
     } catch (error) {
-        console.log("we got error");
-        console.log(error);
         return Promise.reject();
     }
 }
