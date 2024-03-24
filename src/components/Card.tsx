@@ -1,4 +1,4 @@
-import { pokeData } from "./db";
+import { pokeData } from "../db";
 
 interface CardProps {
     data: pokeData;

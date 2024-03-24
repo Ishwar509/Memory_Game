@@ -1,4 +1,4 @@
-import pikachu from "./assets/pikachu.png";
+import pikachu from "../assets/pikachu.png";
 
 const errorMsg = "Oops, Something went wrong";
 

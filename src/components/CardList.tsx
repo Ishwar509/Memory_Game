@@ -1,5 +1,5 @@
 import Card from "./Card";
-import { pokeData } from "./db";
+import { pokeData } from "../db";
 
 interface CardListProps {
     cards: pokeData[];

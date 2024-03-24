@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CardList from "./CardList";
 import GameInfo from "./GameInfo";
-import { fetchData, getRandomCards, pokeData } from "./db";
+import { fetchData, getRandomCards, pokeData } from "../db";
 import ErrorPage from "./Error";
 import Loading from "./Loading";
 

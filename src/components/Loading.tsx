@@ -1,4 +1,4 @@
-import pokeballImg from "./assets/pokeball.png";
+import pokeballImg from "../assets/pokeball.png";
 
 export default function Loading() {
     return (
