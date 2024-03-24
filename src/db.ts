@@ -9,28 +9,24 @@ const maxCardsToShow = 12;
 
 let db: pokeData[] = [];
 const pokeIds = [...Array(totalCards).keys()].map((v) => v + 1);
-const initialFetch = fetchFromAPI();
+let initialFetch: Promise<void> | null = null;
 
 function fetchData() {
-    return initialFetch;
+    if (initialFetch !== null) return initialFetch;
+    return (initialFetch = fetchFromAPI());
 }
 
 async function fetchFromAPI() {
-    try {
-        const data = await Promise.all(pokeIds.map((id) =>
-                fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-                .then((res) => {
-                    if(res.status === 404) throw new Error('error 404');
-                    else return res.json();
-                })
-            ),
-        );
+    const data = await Promise.all(
+        pokeIds.map((id) =>
+            fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`).then((res) => {
+                if (res.status === 404) throw new Error("error 404");
+                else return res.json();
+            }),
+        ),
+    );
 
-        db = data.map((pokemon) => extractData(pokemon));
-        return Promise.resolve();
-    } catch (error) {
-        return Promise.reject();
-    }
+    db = data.map((pokemon) => extractData(pokemon));
 }
 
 function getRandomCards(): pokeData[] {
